@@ -34,10 +34,11 @@ const listingschema = new schema({
           required: true
         },
       },
-    //  category:{
-    //     type:String,
-    //     enum:['farm','swimming pool',]
-    //  } 
+    category: {
+      type: String,
+      enum: ['Farm', 'Swimming pool', 'Rooms', 'Castles', 'Camping', 'Arctic', 'Temple','Mountains','Iconic cities'], // Add other categories as needed
+  }
+  
 });
 
 listingschema.post("findOneAndDelete", async (listing) => {

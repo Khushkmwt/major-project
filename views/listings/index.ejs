@@ -35,44 +35,45 @@
         margin-left: 5rem;
        }
     </style>
-  <div id="filters">
+<div >
+    <div id="filters">
     <div class="filter">
       <div><i class="fa-solid fa-fire"></i></div>
       <p> Trending</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-filter-property="Rooms">
       <div><i class="fa-solid fa-bed"></i></div>
       <p> Rooms</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-filter-property="Iconic cities">
       <div><i class="fa-solid fa-mountain-city"></i></div>
       <p> Iconic cities</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-filter-property="Mountains">
       <div><i class="fa-solid fa-mountain-sun"></i></div>
       <p> Mountains</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-filter-property="Castles">
       <div><i class="fa-brands fa-fort-awesome"></i></div>
       <p> Castles</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-filter-property="Swiming pool">
       <div><i class="fa-solid fa-person-swimming"></i></div>
       <p>Swiming pool</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-filter-property="Farm">
       <div><i class="fa-solid fa-tractor"></i></div>
       <p>Farm</p>
     </div>
-    <div class="filter">
+    <div class="filter" data-filter-property="Camping">
       <div><i class="fa-solid fa-campground"></i></div>
       <p>Camping</p>
     </div>
-    <div class="filter">
+    <div class="filter"data-filter-property="Temple">
       <div><i class="fa-solid fa-gopuram"></i></div>
       <p>Temple</p>
     </div>
-    <div class="filter">
+    <div class="filter"data-filter-property="Arctic">
       <div><i class="fa-solid fa-person-snowboarding"></i></div>
       <p>Arctic </p>
     </div>
@@ -83,10 +84,11 @@
       </div>
     </div>
   </div>
+</div>
    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1">
      <% for(let listing of allListing ){ %>
         <a href="/listings/<%= listing._id %>" class="listing-link">
-            <div class="card col listing-card ">
+            <div class="card col listing-card " data-property="<%= listing.category %>">
                 <img src="<%= listing.image.url %>" class="card-img-top" alt="listing image" style="height: 20rem;">
                 <div class="card-img-overlay">abcd </div>
                 <div class="card-body">
@@ -114,4 +116,37 @@
        } 
     };
   });
+
+  // Get all filter elements
+const filterElements = document.querySelectorAll(".filter");
+const listingCards = document.querySelectorAll(".listing-card");
+
+filterElements.forEach((filter) => {
+    filter.addEventListener("click", () => {
+        // Get the property to filter by from the data-filter-property attribute
+        const filterProperty = filter.getAttribute("data-filter-property");
+
+        // Hide all listing cards
+        listingCards.forEach((card) => {
+            card.style.display = "none";
+        });
+
+        if (filterProperty) {
+            // Show only the listing cards that match the selected property
+            const matchingCards = document.querySelectorAll(`[data-property="${filterProperty}"]`);
+            matchingCards.forEach((card) => {
+                card.style.display = "block";
+            });
+        } else {
+            // If no filter is selected, show all listing cards
+            listingCards.forEach((card) => {
+                card.style.display = "block";
+            });
+        }
+    });
+});
+searchInput.addEventListener("input", () => {
+    const searchQuery = searchInput.value.trim(); // Get the search query and remove leading/trailing spaces
+    filterListingCards(searchQuery);
+});
 </script>

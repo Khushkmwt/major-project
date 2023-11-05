@@ -1,5 +1,5 @@
 
- console.log(mapToken);
+//  console.log(mapToken);
  mapboxgl.accessToken = mapToken;
 
  const map = new mapboxgl.Map({
@@ -10,7 +10,7 @@
  zoom: 8 // starting zoom
  });
 
- console.log(listing.geometry);
+//  console.log(listing.geometry);
 const customMarker = document.createElement('div');
 customMarker.className = 'custom-marker';
 customMarker.innerHTML = '<div class="icon"><div class="inner-icon"><i class="fa-solid fa-street-view"></i></div></div>';
