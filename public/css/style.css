@@ -23,6 +23,25 @@ body{
 .nav-link{
     color: #222222 !important;
 }
+.navbar .search-btn{
+    background-color:  #Fe424d;
+    color: #fff;
+    border-radius: 25px;
+    padding: 0 1rem 0 1rem;
+  }
+ .navbar .search-btn:hover{
+    background-color:  #Fe424d;
+    color: #fff;
+  }
+  .navbar .search-btn i {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  .navbar .search-inp{
+    border-radius: 25px;
+    padding: 0.5rem 3rem 0.5rem 3rem;
+    font-size: 0.8rem;
+  }
 /* footer */
 .f-info-links a {
     text-decoration: none;
@@ -53,6 +72,40 @@ body{
     justify-content: center;
     align-items: space-evenly;
 }
+
+/* index page */
+#filters{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+   }
+   .filter{
+    margin-right:1rem;
+    margin-top: 1.5rem;
+    text-align: center;
+    opacity: 0.7;
+   }
+   .filter:hover{
+    opacity: 1;
+    cursor: pointer;
+   }
+   .filter p {
+    font-size: 0.8rem;
+   }
+
+   .tax-info{
+     display: none;
+   }
+   .tax-toggle{
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-left: 5rem;
+   }
 /* cards */
 .listing-card{
     border: none !important;
@@ -73,9 +126,6 @@ body{
     font-weight: 400 !important;
 }
 
-.listing-link{
-    text-decoration: none;
-}
 /* card effect */
 .card-img-overlay{
     opacity: 0;
@@ -99,8 +149,11 @@ body{
  
 /* show page */
 
+.show-page{
+    width: 100%;
+}
 .show-img{
-    height: 30vh;
+    height: 40vh;
 }
 
 .btns{
@@ -110,12 +163,12 @@ body{
 .show-card{
     padding-left: 0;
     padding-right: 0;
-}
 
+}
 /* map */
 #map{
     height: 400px;
-    width: 100vh;
+    width: 80%;
 }
 
 
@@ -170,3 +223,36 @@ body{
     pointer-events: auto;
     position: relative;
 }
+
+  @media only screen and (max-width: 750px) {
+    .navbar{
+    background-color: #fff;
+    height: 20%;
+  }
+  .search-inp{
+    font-size: 0.5rem;
+    width: 70%;
+  }
+  .search-btn{
+    width: 5rem !important;
+    font-size: 0.5rem;
+  }
+  .search-btn i {
+    font-size: 0.7rem;
+  }
+  .edit-btn{
+    font-size: 0.8rem !important;
+    width: 150% !important;
+  }
+  .delete-btn{
+    font-size: 0.8rem !important;
+    width: 100% !important;
+  }
+  #map{
+    height: 200px;
+  }
+ .show-page .card-img-top{
+    width: 30vh !important;
+    height: 25vh !important;
+  }
+  }
