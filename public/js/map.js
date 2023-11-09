@@ -13,7 +13,7 @@
 //  console.log(listing.geometry);
 const customMarker = document.createElement('div');
 customMarker.className = 'custom-marker';
-customMarker.innerHTML = '<div class="icon"><div class="inner-icon"><i class="fa-solid fa-street-view"></i></div></div>';
+customMarker.innerHTML = '<div class="marker-icon"><div class="inner-icon"><i class="fa-solid fa-street-view"></i></div></div>';
 
 // Change the inner HTML of the icon on hover
 customMarker.addEventListener('mouseenter', function () {
